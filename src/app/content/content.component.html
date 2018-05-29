@@ -1,0 +1,19 @@
+<div class="ui-g">
+ <div class="ui-g-4">
+  <p-panel header="System Codes">
+  <p-dataTable [value]="systemcodes" selectionMode="single" [(selection)]="selectedSystemCode" (onRowSelect)="onRowSelect($event)" data-key="code" >
+                  <p-column field="code" header="System Code"></p-column>        
+  </p-dataTable>
+</p-panel>
+</div>
+<div class="ui-g-8" *ngIf="displayActivities">
+    <p-panel header="Details" [toggleable]="true">
+    <label>System Code:<b>{{selectedSystemCode.code}}</b></label> 
+    </p-panel>    
+  <p-panel header="Known Activities">    
+    <p-dataTable [value]="activities">
+      <p-column field="exec" header="Activities"></p-column>        
+    </p-dataTable>                                
+  </p-panel>    
+</div>
+</div>                     

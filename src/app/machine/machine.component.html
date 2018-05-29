@@ -1,0 +1,52 @@
+<div class="ui-g">
+<div class="ui-g-4">
+        <p-panel header="Machines" [toggleable]="true">                
+                <p-dataTable [value]="machines" selectionMode="single" [(selection)]="selectedMachine" (onRowSelect)="onRowSelectMachine($event)" data-key="code" >
+                 <p-column field="name" header="Name"></p-column>        
+                 </p-dataTable>
+                
+       </p-panel>
+</div>
+<div class="ui-g-8" *ngIf="displayLogEntry">
+
+    <p-panel header="Details" [toggleable]="true">
+        <div class="ui-g">
+            <div class="ui-g-12">
+              <label>Machine Name:<b>{{selectedMachine.name}}</b></label>
+
+            </div>
+            <div class="ui-g-12">
+            <button (click)="refreshLog()" > Refresh Logs </button> 
+            </div>   
+        </div>
+    </p-panel>
+            
+                     
+    
+    
+
+
+
+        <p-panel header="LogViewer" [toggleable]="true">
+
+            
+            <p-dataTable [value]="machineLogs" selectionMode="single" [(selection)]="selectedLogEntry" (onRowSelect)="onRowSelectLogEntry($event)" data-key="line" >
+                <p-column field="line" header="Log Entry"></p-column>        
+            </p-dataTable>
+        </p-panel>
+
+        <p-panel header="Activities" [toggleable]="true">
+            
+            <label *ngIf="displayActivities">
+              Selected System Code : <b>{{selectedSystemCode}}</b> 
+            </label>
+                    <ul>
+                    <li *ngFor="let activity of activities">
+                   <span class="badge"> {{activity.exec}} <button (click)="runExec(activity)">Run Activity</button></span>
+                    </li>
+                    
+                    </ul>       
+        </p-panel>
+    
+</div>
+</div>
