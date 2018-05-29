@@ -1,5 +1,7 @@
 # ClientMachineSimulator
 
+[Refer User Guid](https://github.com/inrjeg1/client-machine-simulator/blob/master/User_Guide.docx).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
 
 ## Development server
